@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="rowListScene" extends="Scene" initialFocus="mainRowList">
   <script type="text/brightscript" uri="rowListScene.brs" />
+  <interface>
+    <field id="HeroDetails" type="assocarray" />
+  </interface>
   <children>
+    <Poster id="mainOverlay" opacity="1.0" uri="https://besthqwallpapers.com/Uploads/3-2-2018/39425/4k-material-design-art-lollipop-geometric-shapes.jpg" loadHeight="1080" loadWidth="1920" loadDisplayMode="limitSize"></Poster>
+    <Group id="heroDetailsId" translation="[50,0]" opacity="0.0">
+      <Poster id="ProviderLogo" translation="[0,20]" />
+      <Label id="MainBoldLabel" translation="[0,80]" width="540" wrap="true" maxLines="2" font="font:LargeBoldSystemFont" />
+      <Label id="DateAndDurationLabel" translation="[0,160]" font="font:MediumBoldSystemFont" />
+      <Label id="DescriptionLabel" translation="[0,210]" width="540" wrap="true" maxLines="2" font="font:MediumSystemFont" />
+      <Label id="CategoryLabel" translation="[0,300]" font="font:LargeBoldSystemFont" />
+    </Group>
+    <Animation id="fadeInAnimation" duration="0.4" repeat="false" easeFunction="linear">
+      <Vector2DFieldInterpolator id="textAnimationInterp1" key="[0.0, 1.0]" keyValue="[ [60,0], [70,0] ]" fieldToInterp="heroDetailsId.translation" />
+      <FloatFieldInterpolator id="textAnimationInterp2" key="[0.0 , 1.0]" keyValue="[ 0.0, 1 ]" fieldToInterp="heroDetailsId.opacity" />
+    </Animation>
+    <Animation id="fadeOutAnimation" duration="0.4" repeat="false" easeFunction="linear">
+      <Vector2DFieldInterpolator id="textAnimationInterp3" key="[0.0, 1.0]" keyValue="[ [70,0], [60,0] ]" fieldToInterp="heroDetailsId.translation" />
+      <FloatFieldInterpolator id="textAnimationInterp4" key="[0.0 , 1.0]" keyValue="[ 1, 0.0 ]" fieldToInterp="heroDetailsId.opacity" />
+      <FloatFieldInterpolator id="overlayAnimationInterp" key="[ 0.0, 0.25, 0.5, 0.75, 1 ]" keyValue="[ 1.0, 1.0, 1.0, 0.5, 0.0 ]" fieldToInterp="mainOverlay.opacity" />
+    </Animation>
     <RowList id="mainRowList" rowSpacings="[0.0]" focusXOffset="[-150.0]" translation="[ 0, 330 ]" rowLabelOffset="[[220.0,-6.0]]" itemComponentName="RowListItem" numRows="2" itemSize="[ 1608, 250 ]" rowItemSize="[ [368, 250] ]" rowHeights="[250.0]" vertFocusAnimationStyle="fixedFocusWrap" rowFocusAnimationStyle="fixedFocusWrap" showRowLabel="[true]" rowItemSpacing="[[0.0,0.0]]" drawFocusFeedback="false" rowLabelFont="font:LargeBoldSystemFont" />
   </children>
 </component>
