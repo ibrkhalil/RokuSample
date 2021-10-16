@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component name="rowListScene" extends="Scene" initialFocus="mainRowList">
+  <script type="text/brightscript" uri="rowListScene.brs" />
+  <children>
+    <Group id="rowListParty">
+      <RowList id="rowList1" rowSpacings="[0.0]" focusXOffset="[-150.0]" translation="[ 0, 100 ]" rowLabelOffset="[[220.0,-6.0]]" itemComponentName="RowListItem" numRows="2" itemSize="[ 1608, 250 ]" rowItemSize="[ [368, 250] ]" rowHeights="[250.0]" vertFocusAnimationStyle="floatingFocus" rowFocusAnimationStyle="fixedFocusWrap " showRowLabel="[true]" rowItemSpacing="[[0.0,0.0]]" drawFocusFeedback="false" rowLabelFont="font:LargeBoldSystemFont" />
+      <RowList id="rowList2" rowSpacings="[0.0]" focusXOffset="[-150.0]" translation="[ 0, 400 ]" rowLabelOffset="[[220.0,-6.0]]" itemComponentName="RowListItem" numRows="2" itemSize="[ 1608, 250 ]" rowItemSize="[ [368, 250] ]" rowHeights="[250.0]" vertFocusAnimationStyle="floatingFocus" rowFocusAnimationStyle="fixedFocusWrap " showRowLabel="[true]" rowItemSpacing="[[0.0,0.0]]" drawFocusFeedback="false" rowLabelFont="font:LargeBoldSystemFont" />
+      <RowList id="rowList3" rowSpacings="[0.0]" focusXOffset="[-150.0]" translation="[ 0, 700 ]" rowLabelOffset="[[220.0,-6.0]]" itemComponentName="RowListItem" numRows="2" itemSize="[ 1608, 250 ]" rowItemSize="[ [368, 250] ]" rowHeights="[250.0]" vertFocusAnimationStyle="floatingFocus" rowFocusAnimationStyle="fixedFocusWrap " showRowLabel="[true]" rowItemSpacing="[[0.0,0.0]]" drawFocusFeedback="false" rowLabelFont="font:LargeBoldSystemFont" />
+      <RowList id="rowList4" rowSpacings="[0.0]" focusXOffset="[-150.0]" translation="[ 0, 1000 ]" rowLabelOffset="[[220.0,-6.0]]" itemComponentName="RowListItem" numRows="2" itemSize="[ 1608, 250 ]" rowItemSize="[ [368, 250] ]" rowHeights="[250.0]" vertFocusAnimationStyle="floatingFocus" rowFocusAnimationStyle="fixedFocusWrap " showRowLabel="[true]" rowItemSpacing="[[0.0,0.0]]" drawFocusFeedback="false" rowLabelFont="font:LargeBoldSystemFont" />
+      <RowList id="rowList5" rowSpacings="[0.0]" focusXOffset="[-150.0]" translation="[ 0, 1300 ]" rowLabelOffset="[[220.0,-6.0]]" itemComponentName="RowListItem" numRows="2" itemSize="[ 1608, 250 ]" rowItemSize="[ [368, 250] ]" rowHeights="[250.0]" vertFocusAnimationStyle="floatingFocus" rowFocusAnimationStyle="fixedFocusWrap " showRowLabel="[true]" rowItemSpacing="[[0.0,0.0]]" drawFocusFeedback="false" rowLabelFont="font:LargeBoldSystemFont" />
+      <RowList id="rowList6" rowSpacings="[0.0]" focusXOffset="[-150.0]" translation="[ 0, 1600 ]" rowLabelOffset="[[220.0,-6.0]]" itemComponentName="RowListItem" numRows="2" itemSize="[ 1608, 250 ]" rowItemSize="[ [368, 250] ]" rowHeights="[250.0]" vertFocusAnimationStyle="floatingFocus" rowFocusAnimationStyle="fixedFocusWrap " showRowLabel="[true]" rowItemSpacing="[[0.0,0.0]]" drawFocusFeedback="false" rowLabelFont="font:LargeBoldSystemFont" />
+      <Animation id="scroll" duration="1" repeat="false" easeFunction="linear">
+        <Vector2DFieldInterpolator id="myInterp1" key="[0.0, 1.0]" fieldToInterp="rowListParty.translation" />
+      </Animation>
+    </Group>
+  </children>
+</component>
