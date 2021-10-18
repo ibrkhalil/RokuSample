@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="keyboardScene" extends="Scene" initialFocus="mainRowList">
+    <script type="text/brightscript" uri="keyboardScene.brs" />
+    <children>
+        <Group id="mainSearch">
+            <keyboardComponent id="myKeyboard" />
+            <Label id="heading" translation="[ 700, 145 ]" />
+            <PosterGrid id="searchList" basePosterSize="[125,125]" itemSpacing="[16,16]" translation="[ 730, 180 ]" numRows="3" numColumns="3" />
+            <Video id="video" visible="false" />
+        </Group>
+    </children>
+</component>

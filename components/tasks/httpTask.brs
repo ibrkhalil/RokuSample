@@ -1,11 +1,11 @@
 sub init()
     m.top.functionname = "handleCalls"
     m.port = createObject("roMessagePort")
-    m.top.observeField("request", m.port)
+    m.top.observeFieldScoped("request", m.port)
     m.urlRequest = {}
 end sub
 
-function handleCalls() as Object
+function handleCalls() as object
     while(true)
         msg = wait(0, m.port)
         msgType = type(msg)
@@ -14,24 +14,23 @@ function handleCalls() as Object
                 response = fire(msg.getData())
             end if
         else if msgType = "roUrlEvent"
-                if msg.getInt() = 1
-                    if msg.getResponseCode() > 0
-                        response = handleResponse(msg.getString(),msg,true)
-                    else
-                        response = handleResponse(msg.getFailureReason(),msg,false)
-                    end if
+            if msg.getInt() = 1
+                if msg.getResponseCode() > 0
+                    response = handleResponse(msg.getString(), msg, true)
+                else
+                    response = handleResponse(msg.getFailureReason(), msg, false)
                 end if
-                m.top.response = response
-                return response
+            end if
+            m.top.response = response
         end if
     end while
 end function
 
-function fire(request as Object) as Object
+function fire(request as object) as object
     httpRequest = initiateHttpClient(request.url)
     requestId = httpRequest.getIdentity().ToStr()
     m.urlRequest[requestId] = {
-        request:httpRequest
+        request: httpRequest
     }
     if checkRequestType(request.requestType)
         httpRequest.AsyncPostFromString(formatJson(request.payload))
@@ -40,21 +39,21 @@ function fire(request as Object) as Object
     end if
 end function
 
-function handleResponse(responseString as String, message as Object, isOk as Boolean) as Object
+function handleResponse(responseString as string, message as object, isOk as boolean) as object
     if isOk
-        body = parseJson(responseString)
+        body = responseString
     else
         body = "An Error has Occurred!!"
     end if
-        requestId = message.GetSourceIdentity().ToStr()
-        m.urlRequest[requestId] = invalid
+    requestId = message.GetSourceIdentity().ToStr()
+    m.urlRequest[requestId] = invalid
     return {
         requestId: requestId
-        body:body
+        body: body
     }
 end function
 
-function initiateHttpClient(url as String) as Object
+function initiateHttpClient(url as string) as object
     httpRequest = createObject("roUrlTransfer")
     httpRequest.SetCertificatesFile("common:/certs/ca-bundle.crt")
     httpRequest.InitClientCertificates()
@@ -66,7 +65,7 @@ function initiateHttpClient(url as String) as Object
     return httpRequest
 end function
 
-function checkRequestType(requestType as String) as Boolean
+function checkRequestType(requestType as string) as boolean
     if requestType = "POST" or requestType = "DELETE" or requestType = "PUT" or requestType = "PATCH"
         return true
     else

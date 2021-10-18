@@ -5,7 +5,7 @@
     <field id="focusPercent" type="float" onChange="handleFocus" />
     <field id="rowFocusPercent" type="float" onChange="handleRowFocus" />
   </interface>
-  <script type="text/brightscript" uri="pkg:/components/rowListItem.brs" />
+  <script type="text/brightscript" uri="pkg:/components/RowListItem.brs" />
   <children>
     <Poster scaleRotateCenter="[ 160.0, 90.0 ]" id="itemPoster" width="320" height="180" translation="[0,20]">
       <Rectangle id="itemMask" width="320" height="180" scaleRotateCenter="[ 256.0, 144.0 ]" color="0x101010FF" opacity="0.75" />

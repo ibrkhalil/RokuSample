@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="TrickPlay" extends="Group">
+    <interface>
+        <field id="play" type="boolean" />
+        <field id="forward" type="boolean" />
+        <field id="back" type="boolean" />
+        <field id="cc" type="boolean" />
+        <field id="duration" type="int" />
+        <field id="position" type="int" />
+        <field id="loadingData" type="assocarray" />
+    </interface>
+    <script type="text/brightscript" uri="TrickPlay.brs" />
+    <children>
+        <Poster id="main" uri="pkg:/images/gradient.png" width="1920" height="1080">
+            <LayoutGroup translation="[640,507]" itemSpacings="[50,50,50]" id="mainParent" layoutDirection="horiz" vertAlignment="center" horizAlignment="center">
+                <Label id="elapsedTime" text="00:00" />
+                <Group>
+                    <Poster loadDisplayMode="limitSize" id="ScrubberContainer" translation="[400,0]" width="700" height="10" uri="pkg:/images/white.jpg" blendColor="0x333333FF" />
+                    <Poster loadDisplayMode="limitSize" id="ScrubberFilled" translation="[400,0]" width="0" height="10" uri="pkg:/images/white.jpg" />
+                </Group>
+                <Label id="totalTime" text="00:00" />
+            </LayoutGroup>
+            <LayoutGroup id="bottomButtons" itemSpacings="[10,10,220]" translation="[800,607]" layoutDirection="horiz" vertAlignment="center" horizAlignment="center">
+                <Button height="96" id="back15" iconURI="pkg:/images/whiteleft.png" focusBitmapUri="pkg:/images/buttonbg.png" focusedIconUri="pkg:/images/blackleft.png" minWidth="100" maxWidth="100" />
+                <Button height="96" id="playPause" iconURI="pkg:/images/whitepause.png" focusBitmapUri="pkg:/images/buttonbg.png" focusedIconUri="pkg:/images/blackpause.png" minWidth="100" maxWidth="100" />
+                <Button height="96" id="forward15" iconURI="pkg:/images/whiteright.png" focusBitmapUri="pkg:/images/buttonbg.png" focusedIconUri="pkg:/images/blackright.png" minWidth="100" maxWidth="100" />
+                <Button height="96" id="CC" iconURI="pkg:/images/whitequote.png" focusBitmapUri="pkg:/images/buttonbg.png" focusedIconUri="pkg:/images/blackquote.png" minWidth="100" maxWidth="100" />
+            </LayoutGroup>
+        </Poster>
+        <Animation id="UIShow" duration="1" repeat="false" easeFunction="linear">
+            <FloatFieldInterpolator id="opacitInter" key="[0.0, 0.25, 0.5, 0.75, 1.0]" keyValue="[0.0,0.3,0.6,0.9,1]" fieldToInterp="main.opacity" />
+        </Animation>
+        <Animation id="UIHide" duration="1" repeat="false" easeFunction="linear">
+            <FloatFieldInterpolator id="opacitInter2" key="[0.0, 0.25, 0.5, 0.75, 1.0]" keyValue="[1,0.9,0.6,0.3,0.0]" fieldToInterp="main.opacity" />
+        </Animation>
+        <Timer id="animTimer" repeat="false" duration="3" />
+        <LayoutGroup id="loadingGroup" translation="[640,357]" itemSpacings="[20]" layoutDirection="horiz" vertAlignment="center" horizAlignment="center">
+            <Group>
+                <Poster id="loadingContainer" translation="[500,0]" loadWidth="150.0" bitmapWidth="150" width="150" height="10" uri="pkg:/images/white2.jpg" blendColor="0x333333FF" />
+                <Poster id="loadingFilled" translation="[500,0]" loadWidth="1.0" bitmapWidth="1.0" width="1.0" height="10" uri="pkg:/images/white2.jpg" />
+            </Group>
+            <Label id="loadingPercent" text="" />
+        </LayoutGroup>
+    </children>
+</component>

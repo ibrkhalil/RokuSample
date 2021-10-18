@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component name="RowListContent" extends="ContentNode">
-  <script type="text/brightscript" uri="pkg:/components/rowListContent.brs" />
+  <script type="text/brightscript" uri="pkg:/components/RowListContent.brs" />
   <children></children>
 </component>
